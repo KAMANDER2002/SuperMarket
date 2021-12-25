@@ -1,0 +1,17 @@
+C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\Plugins.DataStore.InMemory\bin\Debug\net5.0\Plugins.DataStore.InMemory.deps.json
+C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\Plugins.DataStore.InMemory\bin\Debug\net5.0\Plugins.DataStore.InMemory.dll
+C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\Plugins.DataStore.InMemory\bin\Debug\net5.0\ref\Plugins.DataStore.InMemory.dll
+C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\Plugins.DataStore.InMemory\bin\Debug\net5.0\Plugins.DataStore.InMemory.pdb
+C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\Plugins.DataStore.InMemory\bin\Debug\net5.0\CoreBuisness.dll
+C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\Plugins.DataStore.InMemory\bin\Debug\net5.0\UseCases.dll
+C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\Plugins.DataStore.InMemory\bin\Debug\net5.0\UseCases.pdb
+C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\Plugins.DataStore.InMemory\bin\Debug\net5.0\CoreBuisness.pdb
+C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\Plugins.DataStore.InMemory\obj\Debug\net5.0\Plugins.DataStore.InMemory.csproj.AssemblyReference.cache
+C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\Plugins.DataStore.InMemory\obj\Debug\net5.0\Plugins.DataStore.InMemory.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\Plugins.DataStore.InMemory\obj\Debug\net5.0\Plugins.DataStore.InMemory.AssemblyInfoInputs.cache
+C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\Plugins.DataStore.InMemory\obj\Debug\net5.0\Plugins.DataStore.InMemory.AssemblyInfo.cs
+C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\Plugins.DataStore.InMemory\obj\Debug\net5.0\Plugins.DataStore.InMemory.csproj.CoreCompileInputs.cache
+C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\Plugins.DataStore.InMemory\obj\Debug\net5.0\Plugins.DataStore.InMemory.csproj.CopyComplete
+C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\Plugins.DataStore.InMemory\obj\Debug\net5.0\Plugins.DataStore.InMemory.dll
+C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\Plugins.DataStore.InMemory\obj\Debug\net5.0\ref\Plugins.DataStore.InMemory.dll
+C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\Plugins.DataStore.InMemory\obj\Debug\net5.0\Plugins.DataStore.InMemory.pdb
