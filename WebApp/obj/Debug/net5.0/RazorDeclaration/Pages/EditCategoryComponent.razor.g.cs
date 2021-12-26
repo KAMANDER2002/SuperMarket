@@ -96,8 +96,8 @@ using UseCases;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/categories")]
-    public partial class Categories : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/editcategory/{categoryId}")]
+    public partial class EditCategoryComponent : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -105,38 +105,41 @@ using UseCases;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 34 "C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\WebApp\Pages\Categories.razor"
+#line 28 "C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\WebApp\Pages\EditCategoryComponent.razor"
        
-    private List<Category> categories;
+        [Parameter]
+        public string CategoryId{ get; set; }
+
+    private Category category;
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        LoadCategories();
+        category = new Category();
     }
-    private void OnClickAddCategory()
+    protected override void OnParametersSet()
     {
-        NavigationManager.NavigateTo("/addcategory");
-    }
-    private void EditCategory(Category category)
-    {
-        NavigationManager.NavigateTo($"/editcategory/{category.CategoryId}");
-    }
-    private void DeleteCategory(int categoryId)
-    {
-        DeleteCategoryUseCase.Delete(categoryId);
-        LoadCategories();
-    }
-    void LoadCategories()
+        base.OnParametersSet();
+        if (int.TryParse(this.CategoryId, out int iCategoryId))
         {
-            categories = ViewCategoryUseCase.Execute()?.ToList();
+            this.category = GetCategoryByIdUseCase.Execute(iCategoryId);
         }
-
+    }
+    private void OnValidSumit()
+    {
+        EditCategoryUseCase.Execute(category);
+        NavigationManager.NavigateTo("/categories");
+    }
+    private void OnCancel()
+    {
+        NavigationManager.NavigateTo("/categories");
+    }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private UseCases.IDeleteCategoryUseCase DeleteCategoryUseCase { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private UseCases.IViewCategoriesUseCase ViewCategoryUseCase { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IEditCategoryUseCase EditCategoryUseCase { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGetCategoryByIdUseCase GetCategoryByIdUseCase { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IAddCategoryUseCase AddCategoryUseCase { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
     }
 }

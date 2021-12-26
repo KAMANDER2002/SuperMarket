@@ -105,7 +105,7 @@ using UseCases;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 25 "C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\WebApp\Pages\AddCategoryComponent.razor"
+#line 26 "C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\WebApp\Pages\AddCategoryComponent.razor"
        
     private Category category;
     protected override void OnInitialized()
@@ -116,6 +116,10 @@ using UseCases;
     private void OnValidSumit()
     {
         AddCategoryUseCase.Execute(category);
+        NavigationManager.NavigateTo("/categories");
+    }
+    private void OnCancel()
+    {
         NavigationManager.NavigateTo("/categories");
     }
 

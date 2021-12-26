@@ -19,7 +19,8 @@
         </label>
         <InputText id="description" @bind-Value="category.Description" class="form-control"></InputText>
     </div>
-    <button type="submit" class="btn btn-primary">Save</button>
+    <button type="submit" class="btn btn-primary" style="margin:0 10px">Сохранить</button>
+    <button type="button" @onclick="OnCancel" class="btn btn-primary">Отмена</button>
 </EditForm>
 }
 @code {
@@ -32,6 +33,10 @@
     private void OnValidSumit()
     {
         AddCategoryUseCase.Execute(category);
+        NavigationManager.NavigateTo("/categories");
+    }
+    private void OnCancel()
+    {
         NavigationManager.NavigateTo("/categories");
     }
 }
