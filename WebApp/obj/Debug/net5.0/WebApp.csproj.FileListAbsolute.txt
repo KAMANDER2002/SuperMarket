@@ -70,3 +70,5 @@ C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\WebApp\obj\Debug\net5.0\
 C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\WebApp\obj\Debug\net5.0\Razor\Pages\EditCategoryComponent.razor.g.cs
 C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\WebApp\obj\Debug\net5.0\RazorDeclaration\Pages\ViewProduct.razor.g.cs
 C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\WebApp\obj\Debug\net5.0\Razor\Pages\ViewProduct.razor.g.cs
+C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\WebApp\obj\Debug\net5.0\RazorDeclaration\Pages\AddProductComponent.razor.g.cs
+C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\WebApp\obj\Debug\net5.0\Razor\Pages\AddProductComponent.razor.g.cs

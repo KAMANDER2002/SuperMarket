@@ -21,13 +21,13 @@
             @foreach (var product in products)
             {
                 <tr>
-                    <td>@GetCategoryByIdUseCase.Execute(product.CategoryId)?.Name</td>
+                    <td>@GetCategoryByIdUseCase.Execute(product.CategoryId.Value)?.Name</td>
                     <td>@product.Name</td>
-                    <td>@Math.Round(product.Price,2) руб</td>
+                    <td>@Math.Round(product.Price.Value,2) руб</td>
                     <td>@product.Quantity</td>
                     <td>
                         <button type="button" class="btn btn-primary" @onclick="@(() => EditProduct(product))">Редактировать</button>
-                        <button type="button" class="btn btn-primary" @onclick="@(() => DeleteProduct(product.CategoryId))">Удалить</button>
+                        <button type="button" class="btn btn-primary" @onclick="@(() => DeleteProduct(product.CategoryId.Value))">Удалить</button>
                     </td>
                 </tr>
             }
@@ -45,7 +45,7 @@
     }
     private void OnClickAddProduct()
     {
-        NavigationManager.NavigateTo("/addcategory");
+        NavigationManager.NavigateTo("/addproduct");
     }
     private void EditProduct(Product product)
     {

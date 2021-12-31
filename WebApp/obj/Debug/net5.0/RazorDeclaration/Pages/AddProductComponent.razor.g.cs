@@ -96,8 +96,8 @@ using UseCases;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/products")]
-    public partial class ViewProduct : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/addproduct")]
+    public partial class AddProductComponent : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -105,38 +105,32 @@ using UseCases;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 39 "C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\WebApp\Pages\ViewProduct.razor"
+#line 45 "C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\WebApp\Pages\AddProductComponent.razor"
        
-    private List<Product> products;
+    private Product product;
+    private IEnumerable<Category> categories;
     protected override void OnInitialized()
     {
         base.OnInitialized();
-        LoadProducts();
+        product = new Product();
+        categories = ViewCategoriesUseCase.Execute();
     }
-    private void OnClickAddProduct()
+    private void OnValidSumit()
     {
-        NavigationManager.NavigateTo("/addproduct");
+        AddProductUseCase.Execute(product);
+        NavigationManager.NavigateTo("/products");
     }
-    private void EditProduct(Product product)
+    private void OnCancel()
     {
-        NavigationManager.NavigateTo($"/editcategory/{product.ProductId}");
-    }
-    private void DeleteProduct(int categoryId)
-    {
-        // DeleteCategoryUseCase.Delete(categoryId);
-        LoadProducts();
-    }
-    void LoadProducts()
-    {
-        products = productUseCase.Execute()?.ToList();
+        NavigationManager.NavigateTo("/products");
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IViewCategoriesUseCase ViewCategoriesUseCase { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGetCategoryByIdUseCase GetCategoryByIdUseCase { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private UseCases.IDeleteCategoryUseCase DeleteCategoryUseCase { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private UseCases.IProductsUseCases productUseCase { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IAddProductsUseCase AddProductUseCase { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
     }
 }
