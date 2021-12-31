@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace WebApp.Shared
+namespace WebApp.Pages
 {
     #line hidden
     using System;
@@ -96,7 +96,8 @@ using UseCases;
 #line default
 #line hidden
 #nullable disable
-    public partial class NavMenu : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/products")]
+    public partial class ViewProduct : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -104,20 +105,39 @@ using UseCases;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 38 "C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\WebApp\Shared\NavMenu.razor"
+#line 39 "C:\Users\borze\Desktop\SuperMarket\SuperMarketManagment\WebApp\Pages\ViewProduct.razor"
        
-    private bool collapseNavMenu = true;
-
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
+    private List<Product> products;
+    protected override void OnInitialized()
     {
-        collapseNavMenu = !collapseNavMenu;
+        base.OnInitialized();
+        LoadProducts();
+    }
+    private void OnClickAddProduct()
+    {
+        NavigationManager.NavigateTo("/addcategory");
+    }
+    private void EditProduct(Product product)
+    {
+        NavigationManager.NavigateTo($"/editcategory/{product.ProductId}");
+    }
+    private void DeleteProduct(int categoryId)
+    {
+        // DeleteCategoryUseCase.Delete(categoryId);
+        LoadProducts();
+    }
+    void LoadProducts()
+    {
+        products = productUseCase.Execute()?.ToList();
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IGetCategoryByIdUseCase GetCategoryByIdUseCase { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private UseCases.IDeleteCategoryUseCase DeleteCategoryUseCase { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private UseCases.IProductsUseCases productUseCase { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
     }
 }
 #pragma warning restore 1591

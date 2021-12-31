@@ -1,0 +1,63 @@
+﻿@page "/products"
+
+@inject NavigationManager NavigationManager
+@inject UseCases.IProductsUseCases productUseCase
+@inject UseCases.IDeleteCategoryUseCase DeleteCategoryUseCase
+@inject IGetCategoryByIdUseCase GetCategoryByIdUseCase
+<h3>ManageProducts</h3>
+<br/>
+@if (products != null)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in products)
+            {
+                <tr>
+                    <td>@GetCategoryByIdUseCase.Execute(product.CategoryId)?.Name</td>
+                    <td>@product.Name</td>
+                    <td>@Math.Round(product.Price,2) руб</td>
+                    <td>@product.Quantity</td>
+                    <td>
+                        <button type="button" class="btn btn-primary" @onclick="@(() => EditProduct(product))">Редактировать</button>
+                        <button type="button" class="btn btn-primary" @onclick="@(() => DeleteProduct(product.CategoryId))">Удалить</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<br />
+<button type="button" @onclick="OnClickAddProduct" class="btn btn-primary">Добавить категорию</button>
+@code {
+    private List<Product> products;
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        LoadProducts();
+    }
+    private void OnClickAddProduct()
+    {
+        NavigationManager.NavigateTo("/addcategory");
+    }
+    private void EditProduct(Product product)
+    {
+        NavigationManager.NavigateTo($"/editcategory/{product.ProductId}");
+    }
+    private void DeleteProduct(int categoryId)
+    {
+        // DeleteCategoryUseCase.Delete(categoryId);
+        LoadProducts();
+    }
+    void LoadProducts()
+    {
+        products = productUseCase.Execute()?.ToList();
+    }
+}

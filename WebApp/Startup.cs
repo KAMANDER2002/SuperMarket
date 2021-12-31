@@ -33,12 +33,14 @@ namespace WebApp
             services.AddSingleton<WeatherForecastService>();
             //Depency Enjection
             services.AddScoped<ICategoryRepository, CategoryInMemoryRepository>();
+            services.AddScoped<IProductRepository, ProductInMemoryRepository>();
             //
             services.AddTransient<IViewCategoriesUseCase, ViewCategoriesUseCase>();
             services.AddTransient<IAddCategoryUseCase, AddCategoryUseCase>();
             services.AddTransient<IEditCategoryUseCase, EditCategoryUseCase>();
             services.AddTransient<IGetCategoryByIdUseCase, GetCategoryByIdUseCase>();
             services.AddTransient<IDeleteCategoryUseCase, DeleteCategoryUseCase>();
+            services.AddTransient<IProductsUseCases,ProductsUseCases>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
